@@ -856,12 +856,6 @@ client.on('message', async message => {
 
 
 
-client.on("ready", () => {
-  function lol() {
-    client.guilds.get('431397251445817345','435210800504897536').roles.find("name", "rainbow").setColor("RANDOM");
-  }
-  setInterval(lol, 100);
-})
 
 
 
