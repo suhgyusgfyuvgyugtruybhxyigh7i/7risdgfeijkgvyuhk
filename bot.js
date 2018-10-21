@@ -104,12 +104,11 @@ client.on('message', message => {
            if(!message.channel.guild) return message.channel.send("This Command is Just For Servers!")
            var embed = new Discord.RichEmbed()
            .setTitle("alpha")
-           .setURL("
-https://discord.gg/XHE9sWk
-https://discord.gg/Mmc5HdA
-https://discord.gg/Ea955C5
-https://discord.gg/h2zseP7
-")
+           .setURL("https://discord.gg/XHE9sWk
+                    https://discord.gg/Mmc5HdA
+                    https://discord.gg/Ea955C5
+                    https://discord.gg/h2zseP7
+                                              ")
            .setTimestamp()
            .setColor("RANDOM")
            message.channel.send({embed})
