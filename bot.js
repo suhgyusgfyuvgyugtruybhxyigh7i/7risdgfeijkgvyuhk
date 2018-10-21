@@ -348,7 +348,7 @@ client.on("message", message => {
   
   let command = message.content.split(" ")[0];
   
-  if (command === "-mute") {
+  if (command === "*mute") {
         if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
   let user = message.mentions.users.first();
   let modlog = client.channels.find('name', 'log');
@@ -384,7 +384,7 @@ return message.reply("**:white_check_mark: .. تم اعطاء العضو ميو�
   
   let command = message.content.split(" ")[0];
   
-  if (command === "-unmute") {
+  if (command === "*unmute") {
         if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
   let user = message.mentions.users.first();
   let modlog = client.channels.find('name', 'log');
@@ -441,7 +441,7 @@ client.on("message", message => {
 client.on('message',async msg => {
      if(msg.channel.type === "dm") return;
   if(msg.author.bot) return;
-  var p = "-";
+  var p = "*";
   if(msg.content.startsWith(p + "setstats")) {
   if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **go play minecraft**');
   if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');
@@ -846,7 +846,6 @@ client.on('message', async message => {
     if(err) console.log(err)
 	});
 }
-
 
 
 
