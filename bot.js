@@ -87,6 +87,7 @@ client.on('message', message => {
   
 if (message.content.startsWith(prefix + 'perm')) {
          if(!message.channel.guild) return;
+	    if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
          var perms = JSON.stringify(message.channel.permissionsFor(message.author).serialize(), null, 4);
          var zPeRms = new Discord.RichEmbed()
          .setColor('RANDOM')
@@ -101,7 +102,7 @@ if (message.content.startsWith(prefix + 'perm')) {
 
 client.on('message', message => {
        if(message.content.startsWith(`رابط`)){
-           if(!message.channel.guild) return message.channel.send("This Command is Just For Servers!")
+    if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
            var embed = new Discord.RichEmbed()
            .setTitle("alpha")
            .setURL("https://discord.gg/Su7f4xT")
@@ -118,6 +119,7 @@ client.on('message', message => {
 
 client.on('message', function(message) {
     if(message.content.startsWith(prefix + 'roll')) {
+	        if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
         let args = message.content.split(" ").slice(1);
         if (!args[0]) {
             message.channel.send('**حط رقم معين يتم السحب منه**');
@@ -136,6 +138,7 @@ client.on('message', function(message) {
 
 client.on('message', message => {
     if (message.author.bot) return;
+	    if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
      if (message.content === prefix + "help") {
 		 message.channel.send('**تم ارسالك في الخاص**');
             
@@ -220,6 +223,7 @@ client.on('message', message => {
 const devs = ['252813587188416512'];
 const adminprefix = "-";
 client.on('message', message => {
+	    if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!devs.includes(message.author.id)) return;
       
@@ -277,6 +281,7 @@ client.on('message',  message => {
 
  client.on('message',async message => {
   if(message.content.startsWith(prefix + "server")) {
+	      if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
     let embed = new Discord.RichEmbed()
     .setAuthor(message.author.username, message.author.avatarURL)
     .setTitle(`\`${message.guild.name}\``)
@@ -443,6 +448,7 @@ client.on('message',async msg => {
   if(msg.author.bot) return;
   var p = "*";
   if(msg.content.startsWith(p + "setstats")) {
+	      if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
   if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **go play minecraft**');
   if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');
   var ggg= msg.guild.createChannel('SERVER STATS', 'category').then(kk => {
