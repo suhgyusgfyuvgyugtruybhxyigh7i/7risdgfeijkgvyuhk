@@ -845,7 +845,8 @@ client.on('message', async message => {
   fs.writeFile("./jsons/cookies.json", JSON.stringify(cookies), (err) => {
     if(err) console.log(err)
 	});
-}};
+}});
+
 
 
 
