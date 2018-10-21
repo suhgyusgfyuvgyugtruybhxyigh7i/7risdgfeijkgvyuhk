@@ -6,7 +6,7 @@ const credits = require("./jsons/credits.json");
 const lvlmsg = require("./jsons/lvlmsg.json");
 const cookies = require("./jsons/cookies.json");
 client.on('ready', () => {
-  client.user.setGame('Type *help','https://www.twitch.tv/peery13');
+  client.user.setGame('Alpha bot *help','https://www.twitch.tv/peery13');
   console.log('---------------');
   console.log(' Bot Is Online')
   console.log('---------------')
