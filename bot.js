@@ -1,10 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = "*";
-const xp = require("./jsons/xp.json");
-const credits = require("./jsons/credits.json");
-const lvlmsg = require("./jsons/lvlmsg.json");
-const cookies = require("./jsons/cookies.json");
+
+
 client.on('ready', () => {
   client.user.setGame('Alpha bot *help','https://www.twitch.tv/peery13');
   console.log('---------------');
@@ -797,117 +795,6 @@ client.on('message',message =>{
    
     }
   });
-
-
-
-client.on('message', async message => { 
-	if (message.author.bot)return;
-	if (message.content.startsWith("*") && message.channel.type !== "text")return mesage.reply("Please use my commands in a server");
-	
-    if(!prefixes[message.guild.id]){
-    prefixes[message.guild.id] = {
-      prefixes: "*"
-    };
-  }
-  if(!credits[message.author.id]){
-    credits[message.author.id] = {
-      credits: 0
-    };
-  }
-  if(!lvlmsg[message.guild.id]){
-    lvlmsg[message.guild.id] = {
-      lvlmsg: "GG {mem.nick}, you just leveled up!"
-    };
-  }
-  if(!lvls[message.guild.id]){
-    lvls[message.guild.id] = {
-      lvls: "false"
-    };
-  }
-  if(!cookies[message.author.id]){
-    cookies[message.author.id] = {
-      cookies: 0
-    };
-  }
-
-
-  let coinAmt = Math.floor(Math.random() * 1) + 1;
-
-  if(coinAmt === coinAmt){
-    credits[message.author.id] = {
-      credits: credits[message.author.id].credits + coinAmt
-    };
-  fs.writeFile("./jsons/credits.json", JSON.stringify(credits), (err) => {
-    if (err) console.log(err)
-  });
- }
- 
-  let xpAdd = Math.floor(Math.random() * 7) + 8;
-
-  if(!xp[message.author.id]){
-    xp[message.author.id] = {
-      xp: 0,
-      level: 1
-    };
-  }
-  
-  let levelmsg = lvlmsg[message.guild.id].lvlmsg;
-  let cokis = cookies[message.author.id].cookies;
-  
-	if(lvls[message.guild.id].lvls === "true"){
-  let curxp = xp[message.author.id].xp;
-  let curlvl = xp[message.author.id].level;
-  let nxtLvl = xp[message.author.id].level * 800;
-  xp[message.author.id].xp =  curxp + xpAdd;
-  if(nxtLvl <= xp[message.author.id].xp){
-    xp[message.author.id].level = curlvl + 1;
-	cookies[message.author.id].cookies = cokis + 2;
-	if(levelmsg.includes("{mem.nick}")) levelmsg = levelmsg.replace("{mem.nick}", `${message.member.displayName}`);
-    if(levelmsg.includes("{mem}")) levelmsg = levelmsg.replace("{mem}", `${message.author}`);
-	message.channel.send(`${levelmsg}`).then(msg => {msg.delete(5000)});
-	}
-  fs.writeFile("./jsons/xp.json", JSON.stringify(xp), (err) => {
-    if(err) console.log(err)
-  });
-  fs.writeFile("./jsons/cookies.json", JSON.stringify(cookies), (err) => {
-    if(err) console.log(err)
-	});
-}});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 client.login(process.env.BOT_TOKEN);
